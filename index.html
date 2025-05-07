@@ -629,21 +629,28 @@
 	<script src="js/main.js"></script>
 
 	<script>
-    var d = new Date(new Date().getTime() + 220 * 70 * 70 * 2000);
+    // Majlis: 31 Mei 2025, jam 12:00 AM
+    var targetDate = new Date(2025, 4, 31, 0, 0, 0); // Bulan 4 = Mei
 
-    // default example
     simplyCountdown('.simply-countdown-one', {
-        year: d.getFullYear(),
-        month: d.getMonth() + 1,
-        day: d.getDate()
-    });
-
-    //jQuery example
-    $('#simply-countdown-losange').simplyCountdown({
-        year: d.getFullYear(),
-        month: d.getMonth() + 1,
-        day: d.getDate(),
-        enableUtc: false
+        year: targetDate.getFullYear(),
+        month: targetDate.getMonth() + 1,
+        day: targetDate.getDate(),
+        hours: targetDate.getHours(),
+        minutes: targetDate.getMinutes(),
+        seconds: targetDate.getSeconds(),
+        words: {
+            days: 'hari',
+            hours: 'jam',
+            minutes: 'minit',
+            seconds: 'saat',
+            pluralLetter: ''
+        },
+        enableUtc: false,
+        zeroPad: true,
+        onEnd: function () {
+            alert('Selamat Pengantin Baru! 🎊');
+        }
     });
 </script>
 
